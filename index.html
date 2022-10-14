@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Draping evaluation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="functions.js"></script>
+</head>
+
+<body onload="sampleImages(); const userId = userIdSetup();"><main>
+<h1>Title</h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<hr>
+<img id="img0" onclick="clickImage('0')" class="imgHover split left"/>
+<img id="img1" onclick="clickImage('1')" class="imgHover split right" />
+<img id="img2" onclick="clickImage('2')" class="imgHover split left" />
+<div id="imgNone" onclick="clickImage('none')" class="imgHover split right divNone">
+  <div class="textCenter">
+  <center><h4 > I cannot decide: all images look equally (ir-)realistic. </h4></center>
+  </div>
+</div>
+
+</main></body>
+</html>
