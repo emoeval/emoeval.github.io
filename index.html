@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <meta charset="utf-8">
@@ -11,9 +11,14 @@
 </head>
 
 <body onload="sampleImages(); const userId = userIdSetup();"><main>
-<h1>Title</h1>
+<h1>Comparing draping methods</h1>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+In this study, we are comparing different methods for draping a virtual 3D garment over the human body. You are presented triplets of images, where we drape the same garment using 3 different methods. 
+<br><b>Please click on the one that you find the most realistic</b>. If you cannot make up your mind, pick the last answer.
+A new random garment/body combination is shown after each click, and you can stop at any time.
+<br>
+<i>Thanks a lot for your help!</i>
+</p>
 
 <hr>
 <img id="img0" onclick="clickImage('0')" class="imgHover split left"/>
@@ -26,9 +31,12 @@
 <img id="img2" onclick="clickImage('2')" class="imgHover split left" />
 <div id="imgNone" onclick="clickImage('none')" class="imgHover split right divNone">
   <div class="textCenter">
-  <center><h4 > I cannot decide: all images look equally good or bad. </h4></center>
+  <center><h4 > I cannot decide: all look equally good or bad. </h4></center>
   </div>
 </div>
+
+<div style="clear: both;"> </div>
+<div style="height: 100px; display: block;" > </div>
 
 </main></body>
 </html>
