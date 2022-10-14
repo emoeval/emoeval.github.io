@@ -59,9 +59,10 @@ function sampleImages(){
   rendering_id = getRandomInt(num_renderings) + 1
 
   // Display corresponding images
-  img0.src = draping_modes[0] + "/" + rendering_id + ".png"
-  img1.src = draping_modes[1] + "/" + rendering_id + ".png"
-  img2.src = draping_modes[2] + "/" + rendering_id + ".png"
+  base_url = "https://raw.githubusercontent.com/drapingevaluation/drapingevaluation.github.io/assets_test/"
+  img0.src = base_url + draping_modes[0] + "/" + rendering_id + ".png"
+  img1.src = base_url + draping_modes[1] + "/" + rendering_id + ".png"
+  img2.src = base_url + draping_modes[2] + "/" + rendering_id + ".png"
 
 }
 
