@@ -5,9 +5,16 @@
 
 .imgHover:hover {
     cursor: pointer;
-    opacity: 0.8;
-    filter: alpha(opacity=80); /* msie */
 }
+
+@media (pointer: fine) {
+    .imgHover:hover {
+        cursor: pointer;
+        opacity: 0.8;
+        filter: alpha(opacity=80); /* msie */
+    }
+}
+
 
 img {
   border: 1px solid #555;
