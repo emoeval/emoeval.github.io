@@ -56,7 +56,7 @@ function sampleImages(){
   // Method order is randomized
   draping_modes = shuffleArray(["a", "b", "c"])
   // Body/garment combination is randomized
-  rendering_id = getRandomInt(num_renderings) + 1
+  rendering_id = getRandomInt(num_renderings)
 
   // Display corresponding images
   base_url = "https://raw.githubusercontent.com/drapingevaluation/drapingevaluation.github.io/assets_test_2/"
