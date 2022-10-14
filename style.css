@@ -1,0 +1,52 @@
+.desaturate{
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* msie */
+}
+
+.imgHover:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* msie */
+}
+
+img {
+  border: 1px solid #555;
+}
+
+main {
+  max-width: -webkit-calc(800px - (15px * 2));
+  max-width: calc(800px - (15px * 2));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px; }
+
+.split {
+    display: block;
+    height: 100%;
+    width: 49% !important;
+  }
+  
+.left {
+    float:left;
+    margin:2px; 
+}
+  
+.right {
+    float:right;
+    margin:2px; 
+}
+
+.divNone {
+  width: 500px;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #555;
+}
+
+.textCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
