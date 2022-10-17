@@ -51,7 +51,7 @@ function shuffleArray(arr){
 
 function sampleImages(){
   /* Samples and displays the same garment, draped by 3 methods: a, b, c. */
-  num_renderings = 10
+  num_renderings = 1345
 
   // Method order is randomized
   draping_modes = shuffleArray(["a", "b", "c"])
@@ -59,7 +59,7 @@ function sampleImages(){
   rendering_id = getRandomInt(num_renderings)
 
   // Display corresponding images
-  base_url = "https://raw.githubusercontent.com/drapingevaluation/drapingevaluation.github.io/assets_test_2/"
+  base_url = "https://raw.githubusercontent.com/drapingevaluation/drapingevaluation.github.io/assets/"
   img0.src = base_url + draping_modes[0] + "/" + rendering_id + ".png"
   img1.src = base_url + draping_modes[1] + "/" + rendering_id + ".png"
   img2.src = base_url + draping_modes[2] + "/" + rendering_id + ".png"
