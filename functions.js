@@ -122,7 +122,7 @@ function sendData(data) {
 
   // Define what happens in case of error
   XHR.addEventListener('error', (event) => {
-    alert('Oops! Something went wrong. Try refreshing the page.');
+    alert('Oops! Something went wrong. Try refreshing the page. If the issue persists, please read the message at the bottom of the page.');
   });
 
   // Set up our request
