@@ -3,22 +3,18 @@ function clickImage(imgId){
   getLock()
   img0_src = getCleanerPath(img0.src)
   img1_src = getCleanerPath(img1.src)
-  img2_src = getCleanerPath(img2.src)
 
   if(imgId == "0") {
     methodPreference = img0_src[0]
   } else if(imgId == "1") {
     methodPreference = img1_src[0]
-  }else if(imgId == "2") {
-    methodPreference = img2_src[0]
   } else {
     methodPreference = "None"
   }
 
   sendData({"UserName": userId,
             "Img0": img0_src, 
-            "Img1": img1_src, 
-            "Img2": img2_src, 
+            "Img1": img1_src,
             "imgPreference": imgId,
             "methodPreference": methodPreference})
 
@@ -50,26 +46,30 @@ function shuffleArray(arr){
 }
 
 function sampleImages(){
-  /* Samples and displays the same garment, draped by 3 methods: a, b, c. */
-  num_renderings = 1345
+  /* Samples and displays the same garment, draped by 2 concurrent methods: a,c or b,d. */
 
-  // Method order is randomized
-  draping_modes = shuffleArray(["a", "b", "c"])
+  if(getRandomInt(2)){
+    num_renderings = 1116
+    // Method order is randomized
+    draping_modes = shuffleArray(["a", "c"])
+  } else {
+    num_renderings = 564
+    draping_modes = shuffleArray(["b", "d"])
+  }
+
   // Body/garment combination is randomized
   rendering_id = getRandomInt(num_renderings)
 
   // Display corresponding images
-  base_url = "https://raw.githubusercontent.com/drapingevaluation/drapingevaluation.github.io/assets/"
+  base_url = "https://raw.githubusercontent.com/drapingevaluation/drapingevaluation.github.io/assets2/"
   img0.src = base_url + draping_modes[0] + "/" + rendering_id + ".png"
   img1.src = base_url + draping_modes[1] + "/" + rendering_id + ".png"
-  img2.src = base_url + draping_modes[2] + "/" + rendering_id + ".png"
 
 }
 
 function greyOutImages(){
   greyOutImage(img0)
   greyOutImage(img1)
-  greyOutImage(img2)
   greyOutImage(imgNone)
 }
 
@@ -81,7 +81,6 @@ function greyOutImage(img){
 function UNgreyOutImages(){
   UNgreyOutImage(img0)
   UNgreyOutImage(img1)
-  UNgreyOutImage(img2)
   UNgreyOutImage(imgNone)
 }
 
@@ -93,7 +92,6 @@ function UNgreyOutImage(img){
 function getLock(){
   img0.onclick = (event) => {}
   img1.onclick = (event) => {}
-  img2.onclick = (event) => {}
   imgNone.onclick = (event) => {}
   greyOutImages()
 }
@@ -101,7 +99,6 @@ function getLock(){
 function releaseLock(){
   img0.onclick = (event) => {clickImage('0')}
   img1.onclick = (event) => {clickImage('1')}
-  img2.onclick = (event) => {clickImage('2')}
   imgNone.onclick = (event) => {clickImage('none')}
   UNgreyOutImages()
 }
@@ -126,7 +123,7 @@ function sendData(data) {
   });
 
   // Set up our request
-  XHR.open('POST', 'https://script.google.com/macros/s/AKfycbzgoJLTCyaqrgrZ2jCHQZKymAZpW7ON1YX4nhXJ8lNyvraYf1MzJF01MIjJFWI-GQE/exec');
+  XHR.open('POST', 'https://script.google.com/macros/s/AKfycbzXof_89vtE22akqC6dV02CVDrUP3LX6xGN1sdHHIATjE0ZZru8L8lRCAMHN-e9O1Q/exec');
 
   // Send our FormData object; HTTP headers are set automatically
   XHR.send(FD);

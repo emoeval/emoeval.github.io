@@ -45,15 +45,12 @@ main {
 }
 
 .divNone {
-  width: 500px;
-  aspect-ratio: 1 / 1;
+  width: 100% !important;
+  margin:0.1%; 
+  aspect-ratio: 2.1 / 1;
   border: 1px solid #555;
 }
 
 .textCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  aspect-ratio: 1 / 1;
+    padding: 20% 0;
 }
