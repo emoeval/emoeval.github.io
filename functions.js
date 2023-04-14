@@ -48,10 +48,15 @@ function shuffleArray(arr){
 function sampleImages(){
   /* Samples and displays the same garment, draped by 2 concurrent methods: a,c or b,d. */
 
-  if(getRandomInt(2)){
+  comparison = getRandomInt(3)
+
+  if(comparison == 0) {
     num_renderings = 1116
     // Method order is randomized
     draping_modes = shuffleArray(["a", "c"])
+  } else if(comparison == 1) {
+    num_renderings = 1116
+    draping_modes = shuffleArray(["e", "f"])
   } else {
     num_renderings = 564
     draping_modes = shuffleArray(["b", "d"])
