@@ -128,7 +128,9 @@ function sendData(data) {
   });
 
   // Set up our request
-  XHR.open('POST', 'https://script.google.com/macros/s/AKfycbzXof_89vtE22akqC6dV02CVDrUP3LX6xGN1sdHHIATjE0ZZru8L8lRCAMHN-e9O1Q/exec');
+  XHR.open('POST', 'https://script.google.com/macros/s/AKfycbxzxElTHf34bWfwjs8qwsdn2-tzrvjEeRGc_NghAgTvWrhp29ey2vYOKK88ggEQJVmp/exec');
+  //
+  //OLD: https://script.google.com/macros/s/AKfycbzXof_89vtE22akqC6dV02CVDrUP3LX6xGN1sdHHIATjE0ZZru8L8lRCAMHN-e9O1Q/exec
 
   // Send our FormData object; HTTP headers are set automatically
   XHR.send(FD);
