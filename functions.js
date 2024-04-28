@@ -128,7 +128,7 @@ function sendData(data) {
   });
 
   // Set up our request
-  XHR.open('POST', 'https://script.google.com/macros/s/AKfycbxzxElTHf34bWfwjs8qwsdn2-tzrvjEeRGc_NghAgTvWrhp29ey2vYOKK88ggEQJVmp/exec');
+  XHR.open('POST', 'https://script.google.com/macros/s/AKfycbw03vX7gbW7XWi7wWfyi0S6FkdOBsu9E4SXOjqWoOQdVH3gRpmLl0XRVUUfvstJC6Ad/exec');
   //
   //OLD: https://script.google.com/macros/s/AKfycbzXof_89vtE22akqC6dV02CVDrUP3LX6xGN1sdHHIATjE0ZZru8L8lRCAMHN-e9O1Q/exec
 
