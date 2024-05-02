@@ -1,47 +1,79 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Draping evaluation</title>
+  <title>Emotional Talking Head evaluation</title>
   <link rel="stylesheet" href="style.css">
   <script src="functions.js"></script>
+  <script>
+    function startEvaluation() {
+      var video0 = document.getElementById('img0');
+      var video1 = document.getElementById('img1');
+      var divNone = document.getElementById('imgNone');
+
+
+
+
+      video0.style.display = 'block'; // Show the first video
+      video1.style.display = 'block'; // Show the second video
+      divNone.style.display = 'block'; // Show the "no winner" box
+
+      video0.play(); // Start playing the first video
+      video1.play(); // Start playing the second video
+
+      video0.muted = false; // Ensure the first video has sound
+      video1.muted = true; // Mute the second video
+
+      var btn = document.getElementById('startButton');
+      btn.style.display = 'none'; // Hide the button
+    }
+  </script>
+  <style>
+    .video, #imgNone { display: none; } /* Initially hide videos and the "no winner" box */
+    #imgNone h4 { font-size: 24px; } /* Set larger font size for text inside the "no winner" box */
+  
+  </style>
 </head>
 
-<body onload="sampleImages(); const userId = userIdSetup();"><main>
-<h1>Comparing draping methods</h1>
+<body onload="sampleImages(); const userId = userIdSetup();">
+<main>
+<h1>Comparing Talking Head methods</h1>
 
-In this study, we are comparing different methods for draping a virtual 3D garment over the human body. You are presented pairs of images, where we drape the same garment using 2 different methods. 
-<br><b>Please click on the one that you find the most realistic</b>, i.e. with the least visual defects, or the most pleasing and natural to your eyes. If you cannot make up your mind, pick the last answer.
-<br>A new draping simulation is shown after each click, <b>as an endless stream. You can stop at any time.</b>
-<br>
-<i>Thanks a lot for your help!</i>
+<p>In this study, we are comparing different methods for audio-driven talking head generation with a specific on emotion intensity. You are presented pairs of videos, where we generate using 2 different methods. 
+<br><b>Please click on the one that you find the most realistic</b>, i.e., with more believable emotion, or the most pleasing and natural to your eyes. If you cannot make up your mind, pick the last answer.
+<br>A new set of videos is shown after each click, <b>as an endless stream. You can stop at any time.</b>
+<br><i>Thanks a lot for your help!</i>
 </p>
 
 <hr>
-<img id="img0" onclick="clickImage('0')" class="imgHover split left"/>
-<img id="img1" onclick="clickImage('1')" class="imgHover split right" />
 
-<div style="clear: both;"> </div>
-<div style="height: 3px; display: block;" > </div>
-<div style="clear: both;"> </div>
+<video autoplay loop id="img0" onclick="clickImage('0')" class="imgHover split left video"></video>
+<video autoplay muted loop id="img1" onclick="clickImage('1')" class="imgHover split right video"></video>
+
+<button id="startButton" onclick="startEvaluation()" class="btn btn-primary">Start Evaluation</button>
+
+<div style="clear: both;"></div>
+<div style="height: 3px; display: block;"></div>
+<div style="clear: both;"></div>
 
 <div id="imgNone" onclick="clickImage('none')" class="imgHover divNone">
   <div class="textCenter">
-  <center><h4 > I cannot decide: no obvious winner. </h4></center>
+    <center><h4>I cannot decide: no obvious winner.</h4></center>
   </div>
 </div>
 
-<div style="clear: both;"> </div>
-<div style="height: 100px; display: block;" > </div>
 
+<div style="clear: both;"></div>
+<div style="height: 100px; display: block;"></div>
 
 <hr>
-<small><i> This site uses an external Google service to record choices made by the users. You might have to disable tracker blockers (such as the Privacy Badger addon) for it to work. </i></small>
-<div style="clear: both;"> </div>
-<div style="height: 100px; display: block;" > </div>
+<small><i>This site uses an external Google service to record choices made by the users. You might have to disable tracker blockers (such as the Privacy Badger addon) for it to work.</i></small>
+<div style="clear: both;"></div>
+<div style="height: 100px; display: block;"></div>
 
-</main></body>
+</main>
+</body>
 </html>

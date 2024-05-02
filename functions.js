@@ -29,7 +29,7 @@ function clickImage(imgId){
 }
 
 function getRandomInt(max){ 
-  return Math.floor(Math.random()*(max)) 
+  return Math.floor(Math.random()*(max))+1 
 }
 
 function getCleanerPath(path){
@@ -49,6 +49,7 @@ function sampleImages(){
   /* Samples and displays the same garment, draped by 2 concurrent methods: a,c or b,d. */
 
   comparison = getRandomInt(3)
+  comparison = 4 //video
 
   if(comparison == 0) {
     num_renderings = 1116
@@ -57,18 +58,23 @@ function sampleImages(){
   } else if(comparison == 1) {
     num_renderings = 1116
     draping_modes = shuffleArray(["e", "f"])
-  } else {
+  } else if(comparison == 2){
     num_renderings = 564
     draping_modes = shuffleArray(["b", "d"])
+  } else{
+    num_renderings = 1
+    draping_modes = shuffleArray(["a", "b"])
   }
 
   // Body/garment combination is randomized
   rendering_id = getRandomInt(num_renderings)
 
   // Display corresponding images
-  base_url = "https://raw.githubusercontent.com/drapingevaluation/drapingevaluation.github.io/assets2.2/"
-  img0.src = base_url + draping_modes[0] + "/" + rendering_id + ".png"
-  img1.src = base_url + draping_modes[1] + "/" + rendering_id + ".png"
+  base_url = "https://raw.githubusercontent.com/emoeval/emoeval.github.io/video/"
+  //https://github.com/emoeval/emoeval.github.io/blob/video/b/1.mp4
+  img0.src = base_url + draping_modes[0] + "/" + rendering_id + ".mp4"
+  img1.src = base_url + draping_modes[1] + "/" + rendering_id + ".mp4"
+  //img1.src = 'https://raw.githubusercontent.com/emoeval/emoeval.github.io/video/a/1.mp4'
 
 }
 
@@ -109,6 +115,7 @@ function releaseLock(){
 }
 
 function sendData(data) {
+  console.log('data', data  )
   const XHR = new XMLHttpRequest();
   const FD = new FormData();
 
@@ -119,7 +126,7 @@ function sendData(data) {
 
   // Define what happens on successful data submission
   XHR.addEventListener('load', (event) => {
-    console.log('Sucessfully sent response.');
+    console.log('Sucessfully sent response.', event);
   });
 
   // Define what happens in case of error
@@ -128,8 +135,7 @@ function sendData(data) {
   });
 
   // Set up our request
-  XHR.open('POST', 'https://script.google.com/macros/s/AKfycbw03vX7gbW7XWi7wWfyi0S6FkdOBsu9E4SXOjqWoOQdVH3gRpmLl0XRVUUfvstJC6Ad/exec');
-  //
+  XHR.open('POST','https://script.google.com/macros/s/AKfycbwEzX6Oxpt_5vh9O2C9_HSyJ8dKxruxqMifWkFcm81Z04oydJ0bWNgMLgXbL0AjzBsB/exec');
   //OLD: https://script.google.com/macros/s/AKfycbzXof_89vtE22akqC6dV02CVDrUP3LX6xGN1sdHHIATjE0ZZru8L8lRCAMHN-e9O1Q/exec
 
   // Send our FormData object; HTTP headers are set automatically
