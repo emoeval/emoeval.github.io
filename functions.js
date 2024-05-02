@@ -63,7 +63,8 @@ function sampleImages(){
     draping_modes = shuffleArray(["b", "d"])
   } else{
     num_renderings = 1
-    draping_modes = shuffleArray(["a", "b"])
+    other = shuffleArray(["b", "c"])[0]
+    draping_modes = shuffleArray([other, "a"])
   }
 
   // Body/garment combination is randomized
