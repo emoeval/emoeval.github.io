@@ -185,4 +185,13 @@ function userIdSetup(){
 function updateClickCount() {
   var countDisplay = document.getElementById('clickCount');
   countDisplay.innerHTML = "Question: " + currentRenderingId + "/15";
+    
+  // Check if clickCounter has reached 15
+  if (clickCounter >= 5) {
+    showFinishButton();
+  }
+}
+function showFinishButton() {
+  var finishButton = document.getElementById('finishButton');
+  finishButton.style.display = 'block'; // Show the button
 }
