@@ -88,8 +88,28 @@ function sampleImages(){
   img0.src = base_url + draping_modes[0] + "/" + rendering_id + ".mp4"
   img1.src = base_url + draping_modes[1] + "/" + rendering_id + ".mp4"
   //img1.src = 'https://raw.githubusercontent.com/emoeval/emoeval.github.io/video/a/1.mp4'
+  var videosReady = 0;
+
+  function checkVideos() {
+    videosReady++;
+    if (videosReady === 2) { // Ensure both videos are ready
+      img0.play();
+      img1.play();
+    }
+  }
+
+  img0.addEventListener('canplaythrough', checkVideos);
+  img1.addEventListener('canplaythrough', checkVideos);
+
+  // Optional: Remove event listeners after videos start playing to clean up resources
+  img0.onplay = () => {
+    img0.removeEventListener('canplaythrough', checkVideos);
+    img1.removeEventListener('canplaythrough', checkVideos);
+  };
 
 }
+
+
 
 function greyOutImages(){
   greyOutImage(img0)
