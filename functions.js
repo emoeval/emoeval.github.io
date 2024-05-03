@@ -1,5 +1,17 @@
 // Global variable to keep track of the current rendering ID
 var currentRenderingId = 0;
+var messages = [
+  "Which video shows a more natural <b>SAD</b> facial expression?", // Message for 1 click
+  "Which video shows a more natural <b>SAD</b> facial expression?", // Message for 2 clicks
+  "Which video shows a more natural <b>SURPRISED</b> facial expression?", // and so on...
+  "Which video shows a more natural <b>SURPRISED</b> facial expression?",
+  "Which video shows a more natural <b>SURPRISED</b> facial expression?",
+  "Which video shows a more natural <b>SURPRISED</b> facial expression?",
+  "Which video shows a more natural <b>SURPRISED</b> facial expression?",
+  "Which video shows a more natural <b>SURPRISED</b> facial expression?",
+  "Which video shows a more natural <b>ANGRY</b> facial expression?",
+  "Which video shows a more natural <b>ANGRY</b> facial expression?"
+];
 
 function clickImage(imgId){
   getLock()
@@ -50,7 +62,7 @@ function shuffleArray(arr){
 
 function sampleImages(){
   num_renderings = 5
-  num_methods = 3
+  num_methods = 2
 
   other = shuffleArray(["b", "c"])[0]
   draping_modes = shuffleArray([other, "a"])
@@ -64,9 +76,9 @@ function sampleImages(){
     draping_modes = shuffleArray(["b", "a"])
   }
   else if (methods ==1){
-    draping_modes = shuffleArray(["b", "c"])
+    draping_modes = shuffleArray(["a", "c"])
   }
-  else{draping_modes = shuffleArray(["a", "c"])}
+  //else{draping_modes = shuffleArray(["a", "c"])}
 
   currentRenderingId++;
 
@@ -184,14 +196,65 @@ function userIdSetup(){
 }
 function updateClickCount() {
   var countDisplay = document.getElementById('clickCount');
-  countDisplay.innerHTML = "Question: " + currentRenderingId + "/15";
+  displayID = currentRenderingId +1
+  countDisplay.innerHTML = "Question " + displayID + "/10: "  ;
+  if (currentRenderingId <= messages.length) {
+    countDisplay.innerHTML = countDisplay.innerHTML + messages[currentRenderingId];
+}
     
   // Check if clickCounter has reached 15
-  if (clickCounter >= 5) {
+  if (currentRenderingId >= 10) {
     showFinishButton();
   }
 }
 function showFinishButton() {
+
   var finishButton = document.getElementById('finishButton');
-  finishButton.style.display = 'block'; // Show the button
+  var video0 = document.getElementById('img0');
+  var video1 = document.getElementById('img1');
+  var divNone = document.getElementById('imgNone');
+  var startButton = document.getElementById('startButton');
+  var clickCount = document.getElementById('clickCount');
+
+  // Show the finish button
+  finishButton.style.display = 'block';
+
+  // Hide the videos
+  video0.style.display = 'none';
+  video1.style.display = 'none';
+
+  // Hide the "no winner" box
+  divNone.style.display = 'none';
+
+  // Hide the start button if it's still visible
+  startButton.style.display = 'none';
+
+  clickCount.style.display = 'none';
+}
+function startEvaluation() {
+  updateClickCount()
+  sampleImages()
+
+  
+  var video0 = document.getElementById('img0');
+  var video1 = document.getElementById('img1');
+  var divNone = document.getElementById('imgNone');
+
+  var message = document.getElementById('clickCount');
+
+
+
+  message.style.display = 'block';
+  video0.style.display = 'block'; // Show the first video
+  video1.style.display = 'block'; // Show the second video
+  divNone.style.display = 'block'; // Show the "no winner" box
+
+  video0.play(); // Start playing the first video
+  video1.play(); // Start playing the second video
+
+  video0.muted = false; // Ensure the first video has sound
+  video1.muted = true; // Mute the second video
+
+  var btn = document.getElementById('startButton');
+  btn.style.display = 'none'; // Hide the button
 }
