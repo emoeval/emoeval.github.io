@@ -62,7 +62,7 @@ function sampleImages(){
     num_renderings = 564
     draping_modes = shuffleArray(["b", "d"])
   } else{
-    num_renderings = 1
+    num_renderings = 5
     other = shuffleArray(["b", "c"])[0]
     draping_modes = shuffleArray([other, "a"])
   }
