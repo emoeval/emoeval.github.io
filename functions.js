@@ -1,3 +1,5 @@
+// Global variable to keep track of the current rendering ID
+var currentRenderingId = 0;
 
 function clickImage(imgId){
   getLock()
@@ -25,6 +27,7 @@ function clickImage(imgId){
       releaseLock()
     }, 500);
   }, 500);
+  updateClickCount();
 
 }
 
@@ -46,29 +49,26 @@ function shuffleArray(arr){
 }
 
 function sampleImages(){
-  /* Samples and displays the same garment, draped by 2 concurrent methods: a,c or b,d. */
+  num_renderings = 5
+  num_methods = 3
 
-  comparison = getRandomInt(3)
-  comparison = 4 //video
+  other = shuffleArray(["b", "c"])[0]
+  draping_modes = shuffleArray([other, "a"])
 
-  if(comparison == 0) {
-    num_renderings = 1116
-    // Method order is randomized
-    draping_modes = shuffleArray(["a", "c"])
-  } else if(comparison == 1) {
-    num_renderings = 1116
-    draping_modes = shuffleArray(["e", "f"])
-  } else if(comparison == 2){
-    num_renderings = 564
-    draping_modes = shuffleArray(["b", "d"])
-  } else{
-    num_renderings = 5
-    other = shuffleArray(["b", "c"])[0]
-    draping_modes = shuffleArray([other, "a"])
-  }
 
   // Body/garment combination is randomized
-  rendering_id = getRandomInt(num_renderings)
+  //rendering_id = getRandomInt(num_renderings)
+  rendering_id = Math.floor(currentRenderingId / num_methods)+1
+  methods = Math.floor(currentRenderingId % num_methods)
+  if (methods ==0){
+    draping_modes = shuffleArray(["b", "a"])
+  }
+  else if (methods ==1){
+    draping_modes = shuffleArray(["b", "c"])
+  }
+  else{draping_modes = shuffleArray(["a", "c"])}
+
+  currentRenderingId++;
 
   // Display corresponding images
   base_url = "https://raw.githubusercontent.com/emoeval/emoeval.github.io/video/"
@@ -181,4 +181,8 @@ function userIdSetup(){
     setCookie("userId", userId, 100)
   }
   return userId
+}
+function updateClickCount() {
+  var countDisplay = document.getElementById('clickCount');
+  countDisplay.innerHTML = "Question: " + currentRenderingId + "/15";
 }
