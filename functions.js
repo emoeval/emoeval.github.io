@@ -37,8 +37,8 @@ function clickImage(imgId){
     sampleImages()
     setTimeout(function(){
       releaseLock()
-    }, 500);
-  }, 500);
+    }, 1000);
+  }, 1000);
   updateClickCount();
 
 }
